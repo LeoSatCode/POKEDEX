@@ -9,76 +9,57 @@
 .normal {
   background-color: #a6a877;
 }
-
 .grass {
   background-color: #77c850;
 }
-
 .fire {
   background-color: #ee7f30;
 }
-
 .water {
   background-color: #678fee;
 }
-
 .electric {
   background-color: #f7cf2a;
 }
-
 .ice {
   background-color: #98d5d7;
 }
-
 .ground {
   background-color: #dfbf69;
 }
-
 .flying {
   background-color: #a98ff0;
 }
-
 .poison {
   background-color: #a040a0;
 }
-
 .fighting {
   background-color: #bf3029;
 }
-
 .psychic {
   background-color: #f65687;
 }
-
 .dark {
   background-color: #725847;
 }
-
 .rock {
   background-color: #b8a137;
 }
-
 .bug {
   background-color: #a8b720;
 }
-
 .ghost {
   background-color: #6e5896;
 }
-
 .steel {
   background-color: #b9b7cf;
 }
-
 .dragon {
   background-color: #5f38f6;
 }
-
 .fairy {
   background-color: #f9aec7;
 }
-
-
 
 .pokemon {
   display: flex;
@@ -88,7 +69,6 @@
   border-radius: 1rem;
   color: white;
 }
-  
 
 .pokemon .number {
   color: #275a4e;
@@ -115,7 +95,6 @@
   list-style: none;
   align-items: center;
 }
-
 
 .pokemon .detail .types .type {
   text-align: center;
@@ -148,7 +127,6 @@
   background-color: #6c79db;
   border: none;
   border-radius: 1rem;
-  
 }
 
 @media screen and (min-width: 380px) {
@@ -168,3 +146,81 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 1rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.popup.hidden {
+  opacity: 0;
+  transform: translate(-50%, -60%);
+  pointer-events: none;
+}
+
+.popup-content {
+  padding: 0;
+  width: 100%;
+  max-width: 375px;
+  color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--type-color);
+}
+
+.popup-header h2 {
+  margin: 0;
+  color: white;
+}
+
+.popup-header .number {
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0.7;
+}
+
+.popup-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--type-color);
+}
+
+.popup-image img {
+  max-width: 50%;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+.popup-details {
+  padding: 1rem;
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.popup-details p {
+  margin: 0.5rem 0;
+}
+
+.base-stats p, .base-moves p {
+  margin: 0.25rem 0;
+}
+
