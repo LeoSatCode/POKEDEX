@@ -1,39 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- Font Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+      rel="stylesheet"
+    />
     <!-- Nosso CSS -->
     <link rel="stylesheet" href="assets/css/global.css" />
     <link rel="stylesheet" href="assets/css/pokedex.css" />
-</head>
-<body>
+  </head>
+  <body>
     <section class="content">
-        <h1>Pokedex</h1>
-        <ol id="pokemonList" class="pokemons">
-            <!-- Lista de Pokemons-->
-        </ol>
-        <div class="pagination">
-            <button id="loadMore" type="button">Load More</button>
-        </div>
+      <h1>Pokedex</h1>
+      <ol id="pokemonList" class="pokemons">
+        <!-- Lista de Pokemons-->
+      </ol>
+      <div class="pagination">
+        <button id="loadMore" type="button">Load More</button>
+      </div>
     </section>
     <!-- Pop-up Container -->
     <div id="popup" class="popup hidden">
-        <div class="popup-content">
-            <span id="closePopup" class="close">&larr;</span>
-            <div id="popupDetails"></div>
+      <div class="popup-content">
+        <span id="closePopup" class="close">&larr;</span>
+        <div class="popup-header" style="background-color: var(--type-color)">
+          <h2 id="pokemonName"></h2>
+          <span class="number" id="pokemonNumber"></span>
         </div>
+        <div class="popup-image" style="background-color: var(--type-color)">
+          <div class="types-container">
+            <ul id="pokemonTypes" class="types"></ul>
+          </div>
+          <img id="pokemonPhoto" alt="" />
+        </div>
+        <div class="tabs">
+          <button class="tab-link" onclick="openTab(event, 'About')">
+            About
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'BaseStats')">
+            Base Stats
+          </button>
+          <button class="tab-link" onclick="openTab(event, 'BaseMoves')">
+            Base Moves
+          </button>
+        </div>
+        <div id="About" class="tab-content">
+          <p><strong>Weight:</strong> <span id="pokemonWeight"></span> kg</p>
+          <p><strong>Height:</strong> <span id="pokemonHeight"></span> m</p>
+          <p id="pokemonDescription"></p>
+        </div>
+        <div id="BaseStats" class="tab-content"></div>
+        <div id="BaseMoves" class="tab-content"></div>
+      </div>
     </div>
     <!-- Nosso Js -->
     <script src="assets/js/pokemon-model.js"></script>
     <script src="assets/js/poke-api.js"></script>
     <script src="assets/js/main.js"></script>
-</body>
+  </body>
 </html>

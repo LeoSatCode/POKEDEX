@@ -7,58 +7,58 @@
 }
 
 .normal {
-  background-color: #a6a877;
+  background-color: #a8a77a;
 }
 .grass {
-  background-color: #77c850;
+  background-color: #7ac74c;
 }
 .fire {
-  background-color: #ee7f30;
+  background-color: #ee8130;
 }
 .water {
-  background-color: #678fee;
+  background-color: #6390f0;
 }
 .electric {
-  background-color: #f7cf2a;
+  background-color: #f7d02c;
 }
 .ice {
-  background-color: #98d5d7;
+  background-color: #96d9d6;
 }
 .ground {
-  background-color: #dfbf69;
+  background-color: #e2bf65;
 }
 .flying {
-  background-color: #a98ff0;
+  background-color: #a98ff3;
 }
 .poison {
-  background-color: #a040a0;
+  background-color: #a33ea1;
 }
 .fighting {
-  background-color: #bf3029;
+  background-color: #c22e28;
 }
 .psychic {
-  background-color: #f65687;
-}
-.dark {
-  background-color: #725847;
-}
-.rock {
-  background-color: #b8a137;
+  background-color: #f95587;
 }
 .bug {
-  background-color: #a8b720;
+  background-color: #a6b91a;
+}
+.rock {
+  background-color: #b6a136;
 }
 .ghost {
-  background-color: #6e5896;
-}
-.steel {
-  background-color: #b9b7cf;
+  background-color: #735797;
 }
 .dragon {
-  background-color: #5f38f6;
+  background-color: #6f35fc;
+}
+.dark {
+  background-color: #705746;
+}
+.steel {
+  background-color: #b7b7ce;
 }
 .fairy {
-  background-color: #f9aec7;
+  background-color: #d685ad;
 }
 
 .pokemon {
@@ -173,9 +173,7 @@
   max-width: 375px;
   color: white;
   overflow: hidden;
-  
 }
-  
 
 .popup-header, .popup-image, .popup-details {
   width: 100%;
@@ -203,10 +201,87 @@
 
 .popup-image {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   background-color: var(--type-color);
+}
+
+.popup-image .types-container {
+  flex: 1;
+}
+
+.popup-image .types {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.popup-image .types .type {
+  text-align: center;
+  filter: brightness(1.1);
+  padding: 0.5rem 1rem; /* Aumentado para 2x */
+  margin: 0.5rem 0; /* Aumentado para 2x */
+  font-size: 1.25rem; /* Aumentado para 2x */
+  border-radius: 1rem;
+}
+
+.popup-image .types .type.normal {
+  background-color: #a8a77a;
+}
+.popup-image .types .type.fire {
+  background-color: #ee8130;
+}
+.popup-image .types .type.water {
+  background-color: #6390f0;
+}
+.popup-image .types .type.electric {
+  background-color: #f7d02c;
+}
+.popup-image .types .type.grass {
+  background-color: #7ac74c;
+}
+.popup-image .types .type.ice {
+  background-color: #96d9d6;
+}
+.popup-image .types .type.ground {
+  background-color: #e2bf65;
+}
+.popup-image .types .type.flying {
+  background-color: #a98ff3;
+}
+.popup-image .types .type.poison {
+  background-color: #a33ea1;
+}
+.popup-image .types .type.fighting {
+  background-color: #c22e28;
+}
+.popup-image .types .type.psychic {
+  background-color: #f95587;
+}
+.popup-image .types .type.bug {
+  background-color: #a6b91a;
+}
+.popup-image .types .type.rock {
+  background-color: #b6a136;
+}
+.popup-image .types .type.ghost {
+  background-color: #735797;
+}
+.popup-image .types .type.dragon {
+  background-color: #6f35fc;
+}
+.popup-image .types .type.dark {
+  background-color: #705746;
+}
+.popup-image .types .type.steel {
+  background-color: #b7b7ce;
+}
+.popup-image .types .type.fairy {
+  background-color: #d685ad;
 }
 
 .popup-image img {
@@ -238,7 +313,6 @@
   margin-left: 1rem;
 }
 
-
 .base-stats p, .base-moves p {
   margin: 0.25rem 0;
 }
@@ -256,6 +330,38 @@
   justify-content: center;
   align-items: center;
 }
-  
-  
 
+.tabs {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  border-radius: 1rem;
+}
+
+.tab-link {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: background-color 0.3s;
+  flex: 1;
+  text-align: center;
+}
+
+.tab-link:hover {
+  background-color: #ddd;
+}
+
+.tab-content {
+  display: none;
+  padding: 12px 24px;
+  border-top: none;
+  background-color: dimgray;
+  border-radius: 1rem;
+}
+
+.tab-content.active {
+  display: block;
+}
