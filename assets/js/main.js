@@ -26,38 +26,44 @@ function loadPokemon(offset, limit) {
 }
 
 function showPopup(pokemon) {
-  popupDetails.innerHTML = `
-      <div class="popup-header" style="background-color: ${pokemon.typeColor};">
-          <h2>${pokemon.name}</h2>
-          <span class="number">#${pokemon.number}</span>
-      </div>
-      <div class="popup-image" style="background-color: ${pokemon.typeColor};">
-          <img src="${pokemon.photo}" alt="${pokemon.name}" />
-      </div>
-      <div class="popup-details">
-          <p><strong>Weight:</strong> ${pokemon.weight} kg</p>
-          <p><strong>Height:</strong> ${pokemon.height} m</p>
-          <div class="base-stats">
-              <p><strong>Base Stats:</strong></p>
-              ${pokemon.baseStats.map(stat => `<p>${stat}</p>`).join('')}
-          </div>
-          <div class="base-moves">
-              <p><strong>Base Moves:</strong></p>
-              ${pokemon.baseMoves.join(', ')}
-          </div>
-      </div>
-  `;
-  popup.classList.remove('hidden');
-  popup.style.display = 'flex';
-  popup.style.backgroundColor = pokemon.typeColor;
-
+    popupDetails.innerHTML = `
+        <div class="popup-header" style="background-color: ${pokemon.typeColor};">
+            <h2>${capitalizeFirstLetter(pokemon.name)}</h2>
+            <span class="number">#${pokemon.number}</span>
+        </div>
+        <div class="popup-image" style="background-color: ${pokemon.typeColor};">
+            <img src="${pokemon.photo}" alt="${capitalizeFirstLetter(pokemon.name)}" />
+        </div>
+        <div class="popup-details">
+            <p><strong>Weight:</strong> ${pokemon.weight} kg</p>
+            <p><strong>Height:</strong> ${pokemon.height} m</p>
+            <div class="base-stats">
+                <strong>Base Stats:</strong>
+                ${pokemon.baseStats.map(stat => `<p class="stat-item">${stat}</p>`).join('')}
+            </div>
+            <div class="base-moves">
+                <strong>Base Moves:</strong>
+                ${pokemon.baseMoves.map(move => `<p class="move-item">${move}</p>`).join('')}
+            </div>
+        </div>
+    `;
+    popup.classList.remove('hidden');
+    popup.style.display = 'flex';
+    popup.style.backgroundColor = pokemon.typeColor;
   
-  document.addEventListener('click', (event) => {
-    if (!popup.contains(event.target) && !event.target.closest('.pokemon')) {
-      hidePopup();
-    }
-  });
-}
+    // Adiciona um evento para fechar o pop-up ao clicar fora dele
+    document.addEventListener('click', (event) => {
+      if (!popup.contains(event.target) && !event.target.closest('.pokemon')) {
+        hidePopup();
+      }
+    });
+  }
+  
+  function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  
+  
 
 function hidePopup() {
     popup.classList.add('hidden');
